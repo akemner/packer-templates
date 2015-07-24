@@ -3,7 +3,7 @@
     "type": "virtualbox-iso",
     "vboxmanage": [
       [ "modifyvm", "{{.Name}}", "--natpf1", "guest_winrm,tcp,,55985,,5985" ],
-      [ "modifyvm", "{{.Name}}", "--memory", "2048" ],
+      [ "modifyvm", "{{.Name}}", "--memory", "4096" ],
       [ "modifyvm", "{{.Name}}", "--cpus", "2" ]
     ],
     "guest_os_type": "Windows2012_64",
@@ -20,9 +20,10 @@
     "shutdown_timeout": "15m",
     "floppy_files": [
       "answer_files/2012_r2/Autounattend.xml",
-      "scripts/postunattend.xml",
       "scripts/boxstarter.ps1",
-      "scripts/package.ps1"
+      "scripts/bootstrapper.ps1",
+      "scripts/win2k12r2_scripts/postunattend.xml",
+      "scripts/win2k12r2_scripts/package.ps1"
     ]
   }],
     "post-processors": [
